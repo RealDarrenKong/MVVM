@@ -1,17 +1,18 @@
 apply plugin: 'com.android.application'
 
 project.ext {
-    supportLibraryVersion = "26.0.1"
+    supportLibraryVersion = "26.1.0"
     daggerVersion = "2.11"
     butterKnifeVersion = "8.8.1"
+    retrofitVersion = "2.3.0"
     rxJavaVersion = "2.1.3"
     rxAndroidVersion = "2.0.1"
-    lifecycleVersion = "1.0.0-alpha9"
+    lifecycleVersion = "1.0.0-beta1"
 }
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.darrenkong.mvvm"
         minSdkVersion 21
@@ -34,36 +35,36 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile "com.android.support:appcompat-v7:$project.supportLibraryVersion"
-    compile "com.android.support:recyclerview-v7:$project.supportLibraryVersion"
+    implementation "com.android.support:appcompat-v7:$project.supportLibraryVersion"
+    implementation "com.android.support:recyclerview-v7:$project.supportLibraryVersion"
 
     // Dagger core
     annotationProcessor "com.google.dagger:dagger-compiler:$project.daggerVersion"
-    compile "com.google.dagger:dagger:$project.daggerVersion"
+    implementation "com.google.dagger:dagger:$project.daggerVersion"
 
     // Dagger Android
     annotationProcessor "com.google.dagger:dagger-android-processor:$project.daggerVersion"
-    compile "com.google.dagger:dagger-android-support:$project.daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$project.daggerVersion"
     // if you are not using support library, include this instead
-    compile "com.google.dagger:dagger-android:$project.daggerVersion"
+    implementation "com.google.dagger:dagger-android:$project.daggerVersion"
 
     // ButterKnife
-    compile "com.jakewharton:butterknife:$project.butterKnifeVersion"
+    implementation "com.jakewharton:butterknife:$project.butterKnifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$project.butterKnifeVersion"
 
     //Retrofit
-    compile 'com.squareup.retrofit2:retrofit:2.3.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation "com.squareup.retrofit2:retrofit:$project.retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$project.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$project.retrofitVersion"
 
     // ReactiveX
-    compile "io.reactivex.rxjava2:rxjava:$project.rxJavaVersion"
-    compile "io.reactivex.rxjava2:rxandroid:$project.rxAndroidVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$project.rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$project.rxAndroidVersion"
 
     // Lifecycle
-    compile "android.arch.lifecycle:runtime:$project.lifecycleVersion"
-    compile "android.arch.lifecycle:extensions:$project.lifecycleVersion"
-    annotationProcessor "android.arch.lifecycle:compiler:$project.lifecycleVersion"
+//    compile "android.arch.lifecycle:runtime:$project.lifecycleVersion"
+    implementation "android.arch.lifecycle:extensions:$project.lifecycleVersion"
+//    annotationProcessor "android.arch.lifecycle:compiler:$project.lifecycleVersion"
 
     testCompile 'junit:junit:4.12'
 

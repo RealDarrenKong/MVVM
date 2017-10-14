@@ -1,12 +1,13 @@
 package com.darrenkong.mvvm.feature.earthquakeList;
 
-import android.arch.lifecycle.LifecycleActivity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.darrenkong.mvvm.feature.domain.Earthquake;
 import com.darrenkong.mvvm.R;
@@ -20,7 +21,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import dagger.android.AndroidInjection;
 
-public class EarthquakeListActivity extends LifecycleActivity {
+public class EarthquakeListActivity extends AppCompatActivity {
 
     @Inject
     EarthquakeListViewModelFactory viewModelFactory;

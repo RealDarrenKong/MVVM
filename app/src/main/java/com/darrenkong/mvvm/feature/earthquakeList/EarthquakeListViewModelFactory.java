@@ -3,8 +3,6 @@ package com.darrenkong.mvvm.feature.earthquakeList;
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 
-import com.darrenkong.mvvm.feature.rx.SchedulersFacade;
-
 import javax.inject.Inject;
 
 /**
@@ -13,20 +11,17 @@ import javax.inject.Inject;
 
 public class EarthquakeListViewModelFactory implements ViewModelProvider.Factory {
 
-    private EarthquakeManager manager;
-
-    private SchedulersFacade schedulersFacade;
+    private EarthquakeInteractor earthquakeInteractor;
 
     @Inject
-    EarthquakeListViewModelFactory(EarthquakeManager manager, SchedulersFacade schedulersFacade) {
-        this.manager = manager;
-        this.schedulersFacade = schedulersFacade;
+    EarthquakeListViewModelFactory(EarthquakeInteractor earthquakeInteractor) {
+        this.earthquakeInteractor = earthquakeInteractor;
     }
 
     @Override
     public <T extends ViewModel> T create(Class<T> modelClass) {
         if (modelClass.isAssignableFrom(EarthquakeListViewModel.class)) {
-            return (T) new EarthquakeListViewModel(manager, schedulersFacade);
+            return (T) new EarthquakeListViewModel(earthquakeInteractor);
         }
         throw new IllegalArgumentException("Unknown ViewModel class");
     }

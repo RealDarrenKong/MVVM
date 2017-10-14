@@ -7,7 +7,7 @@ package com.darrenkong.mvvm.feature.di;
 import android.content.Context;
 
 import com.darrenkong.mvvm.feature.MvvmApplication;
-import com.darrenkong.mvvm.feature.earthquakeList.EarthquakeService;
+import com.darrenkong.mvvm.feature.earthquakeList.EarthquakeApi;
 
 import javax.inject.Singleton;
 
@@ -36,12 +36,12 @@ public class AppModule {
 
     @Singleton
     @Provides
-    EarthquakeService provideEarthquakeService(GsonConverterFactory converterFactory) {
+    EarthquakeApi provideEarthquakeService(GsonConverterFactory converterFactory) {
         return new Retrofit.Builder()
                 .baseUrl("https://earthquake.usgs.gov")
                 .addConverterFactory(converterFactory)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
-                .create(EarthquakeService.class);
+                .create(EarthquakeApi.class);
     }
 }

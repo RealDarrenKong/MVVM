@@ -11,6 +11,7 @@ import com.darrenkong.mvvm.feature.domain.Earthquake;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,7 +42,7 @@ public class EarthquakesListAdapter extends RecyclerView.Adapter<EarthquakesList
         Earthquake earthquake = list.get(position);
 
         holder.place.setText(earthquake.getPlace());
-        holder.magnitude.setText(earthquake.getMagnitude().toString());
+        holder.magnitude.setText(String.format(Locale.ENGLISH,"%4.3f" , earthquake.getMagnitude()));
         holder.time.setText(earthquake.getTime());
         holder.url.setText(earthquake.getUrl());
         holder.detail.setText(earthquake.getDetail());
